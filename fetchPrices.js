@@ -10,7 +10,7 @@ const fetchPriceForSymbol = async (symbol = 'ETH/USD') => {
 
 const fetchOHLCV = async (
   symbol = 'ETH/USD',
-  since = exchange.parse8601('2022-02-15T16:20:00.000Z'),
+  since = exchange.parse8601('2022-02-15T16:50:00.000Z'),
   timeframe = '5m',
 ) => {
   let sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
@@ -23,16 +23,16 @@ const fetchOHLCV = async (
   }
 }
 
-const fetchLastFiveMinOHLCV = async (
+const printLastFiveMinOHLCV = async (
   symbol = 'ETH/USD',
   since = getLastFiveMinuteInterval,
   timeframe = '5m',
 ) => {
   if (exchange.has.fetchOHLCV) {
     exchange.fetchOHLCV(symbol, timeframe, since).then((res) => {
-      console.log(res)
+      console.log(res[0])
     })
   }
 }
 
-fetchLastFiveMinOHLCV()
+printLastFiveMinOHLCV()

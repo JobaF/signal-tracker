@@ -1,6 +1,10 @@
 Object.prototype.setMinutesToLastFiveMinuteInterval = function () {
-  const lastFiveMinuteInterval = this.getMinutes() - (this.getMinutes() % 5)
-  this.setMinutes(lastFiveMinuteInterval)
+  const timestampThis = this.setMinutes(
+    this.getMinutes() - (this.getMinutes() % 5),
+  )
+  const MS_PER_MINUTE = 60000
+  const subtractedDate = new Date(timestampThis - 5 * MS_PER_MINUTE)
+  this.setTime(subtractedDate)
   return this
 }
 
@@ -27,9 +31,5 @@ const getLastFiveMinuteInterval = (_timestamp = new Date()) => {
   timestamp.resetSecondsAndMilliseconds()
   return timestamp
 }
-
-console.log('Exact time now: ', iso8601ToUnix(new Date()))
-console.log('Unix from calc', getLastFiveMinuteIntervalUnix())
-// console.log('Last 5min interval unix', getLastFiveMinuteIntervalUnix())
 
 exports.getLastFiveMinuteInterval = getLastFiveMinuteIntervalUnix()
