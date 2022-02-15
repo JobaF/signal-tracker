@@ -25,11 +25,4 @@ const getLastFiveMinuteIntervalUnix = (_timestamp = new Date()) => {
   return iso8601ToUnix(timestamp)
 }
 
-const getLastFiveMinuteInterval = (_timestamp = new Date()) => {
-  const timestamp = _timestamp
-  timestamp.setMinutesToLastFiveMinuteInterval()
-  timestamp.resetSecondsAndMilliseconds()
-  return timestamp
-}
-
 exports.getLastFiveMinuteInterval = getLastFiveMinuteIntervalUnix()

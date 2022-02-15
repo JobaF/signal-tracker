@@ -8,11 +8,7 @@ const fetchPriceForSymbol = async (symbol = 'ETH/USD') => {
     .then((ticker) => console.log(ticker))
 }
 
-const fetchOHLCV = async (
-  symbol = 'ETH/USD',
-  since = exchange.parse8601('2022-02-15T16:50:00.000Z'),
-  timeframe = '5m',
-) => {
+const fetchOHLCV = async (symbol = 'ETH/USD', since, timeframe) => {
   let sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
   if (exchange.has.fetchOHLCV) {
