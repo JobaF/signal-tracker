@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "ccxt": "^1.73.12",
-    "jest": "^27.5.1"
+    "jest": "^27.5.1",
+    "technicalindicators": "^3.1.0"
   }
 }
