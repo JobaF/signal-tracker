@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "ccxt": "^1.73.12",
     "jest": "^27.5.1"
   }
 }
